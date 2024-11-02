@@ -1,0 +1,7 @@
+digraph structs {
+  rankdir=LR;
+  node[color="blue",fontsize=14];
+  first [shape=record, label="  x21 | x22 | x23 " ];
+  second [shape=record,label=" x22_1 | x22_2 | x22_3"];
+  first->second;
+}

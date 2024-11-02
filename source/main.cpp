@@ -7,27 +7,29 @@
 #include <sys\stat.h>
 
 #include "list.h"
+#include "dump.h"
 
 int main()
 {
     list_struct my_list = {};
-    if (list_ctor (&my_list, 10) == ALLOCATION_MEMORY_ERROR)
-        assert (0 && "Memory allocation error");
+
+    if (list_ctor (&my_list, 10, "dump.dot") != LIST_SUCCESS)
+    {
+        return EXIT_FAILURE;
+    }
 
     insert_elem(&my_list, 0, 10);
-    insert_elem(&my_list, 1, 20);
-    insert_elem(&my_list, 1, 15);
-    insert_elem(&my_list, 2, 17);
+    insert_elem(&my_list, 1, 40);
+    insert_elem(&my_list, 1, 30);
 
-    for(int i = 0; i < 10; i++)
-    {
-        printf ("%d ", my_list.list[i].elem);
-    }
-    printf ("\n");
-    for (int i = 0; i < 9; i++)
-    {
-        printf ("%d ", my_list.list[i].index_next);
-    }
+
+
+
+    insert_elem(&my_list, 1, 20);
+
+    delete_elem(&my_list, 3);
+
+    dump (&my_list);
 
     list_dtor (&my_list);
 }

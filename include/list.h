@@ -3,11 +3,13 @@
 
 typedef enum
 {
-    ALLOCATION_MEMORY_ERROR = -1,
-    SUCCESS_CTOR = 0,
-    SUCCESS_DTOR = 0
+    LIST_SUCCESS = 0,
+    LIST_ALLOCATION_MEMORY_ERROR = 1,
+    LIST_FILE_NOT_OPENED = 2,
+    LIST_FILE_NOT_CLOSED = 3,
+    LIST_NO_FREE_ELEM = 4
 
-}Status_and_errors;
+}List_errors;
 
 struct list_elem
 {
@@ -17,7 +19,8 @@ struct list_elem
 };
 struct list_struct
 {
-
+    int count = 0;
+    FILE *dump_file = NULL;
     list_elem *list;
     int free = 0;
     int size_list = 0;
@@ -25,7 +28,8 @@ struct list_struct
 };
 
 int insert_elem (list_struct *my_list, int index, int elem);
-int list_ctor(list_struct *my_list, int capacity);
+int list_ctor(list_struct *my_list, int capacity, const char * name_of_dump_file);
 int list_dtor(list_struct *my_list);
+int delete_elem (list_struct *my_list, int index);
 
 #endif
