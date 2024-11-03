@@ -22,13 +22,15 @@ int main()
     insert_elem(&my_list, 1, 40);
     insert_elem(&my_list, 1, 30);
 
+    delete_elem(&my_list, 1);
 
+    insert_elem(&my_list, 2, 50);
+    insert_elem(&my_list, 1, 60);
 
-
-    insert_elem(&my_list, 1, 20);
-
-    delete_elem(&my_list, 3);
-
+    for (int i = 0; i < my_list.capacity; i++)
+    {
+        printf ("%d ", my_list.list[i].elem);
+    }
     dump (&my_list);
 
     list_dtor (&my_list);

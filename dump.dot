@@ -1,8 +1,12 @@
 digraph structs {
 rankdir=LR;
-node[color= "blue" ,fontsize=14];
-el_0 [shape=record, label="prev = 0 | elem = 10 | next = 4"];
-el_1 [shape=record, label="prev = 1 | elem = 20 | next = 2"];
-el_2 [shape=record, label="prev = 4 | elem = 40 | next = 0"];
-el_3 [shape=record, label="prev = 2 | elem = 0 | next = 1"];
-el_0->el_1->el_2->el_3;}
+node[color= "#003A8C",style="filled", fillcolor="#7EEEF8", fontsize=14];
+edge[color="black", style="bold", fontsize=14];
+el_0 [shape=record, label="prev = 4 | elem = 0 | next = 3"];
+el_1 [shape=record, label="prev = 2 | elem = 50 | next = 4"];
+el_2 [shape=record, label="prev = 3 | elem = 40 | next = 1"];
+el_3 [shape=record, label="prev = 0 | elem = 30 | next = 2"];
+el_4 [shape=record, label="prev = 1 | elem = 60 | next = 0"];
+el_0->el_1->el_2->el_3->el_4;
+edge[color="blue",fontsize=12];
+el_0->el_3->el_2->el_1->el_4->el_0;}
